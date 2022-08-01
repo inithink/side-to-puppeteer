@@ -1,0 +1,6 @@
+page = await browser.newPage()
+await page._client().send('Page.setDownloadBehavior', {
+  behavior: 'allow',
+  downloadPath: __dirname
+});
+await page.goto('{{&target}}');

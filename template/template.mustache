@@ -1,0 +1,24 @@
+import puppeteer from "puppeteer";
+
+(async () => {
+  const browser = await puppeteer.launch({
+    headless: false,
+    defaultViewport: {
+      width: 1920,
+      height: 1080
+    }
+  });
+  let page = (await browser.pages())[0];
+  if (!page) {
+    page = await browser.newPage();
+  }
+  await page._client().send('Page.setDownloadBehavior', {
+    behavior: 'allow',
+    downloadPath: __dirname
+  });
+
+{{#commands}}
+{{&.}}
+{{/commands}}
+})()
+  .catch(console.error);
