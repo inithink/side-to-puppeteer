@@ -1,6 +1,6 @@
 {
-  "name": "@inithink/side2puppeteer ",
-  "version": "1.0.2",
+  "name": "@inithink/side-to-puppeteer",
+  "version": "1.0.3",
   "description": "",
   "main": "build/index.js",
   "scripts": {

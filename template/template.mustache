@@ -1,4 +1,7 @@
 import puppeteer from "puppeteer";
+import fs from "fs";
+
+const downloadDir = fs.mkdtempSync("download")
 
 (async () => {
   const browser = await puppeteer.launch({
@@ -14,7 +17,7 @@ import puppeteer from "puppeteer";
   }
   await page._client().send('Page.setDownloadBehavior', {
     behavior: 'allow',
-    downloadPath: __dirname
+    downloadPath: downloadDir,
   });
 
 {{#commands}}
